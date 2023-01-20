@@ -5,7 +5,6 @@ items = {
     "unit price (PLN)": [2.3, 3, 1.2, 40]
 }
 
-text = ""
 def intro_question():
     init_answer = input("What would you like to do? ")
     if init_answer == "exit":
@@ -16,17 +15,17 @@ def intro_question():
         items_keys = [i.title() for i in items]
         items_letters_length = ["-" * len(j) for j in items_keys]
         
-        items_test = []
+        items_values = []
         for j in range(0,len(items.items())):
             for i in items:
-                items_test.append(items.get(i)[j])
+                items_values.append(items.get(i)[j])
 
         items_final_list = []
         items_final_list.append(items_keys)
         items_final_list.append(items_letters_length)
 
         for i in range(0,4):
-            items_final_list.append(items_test[4*i:4+4*i])
+            items_final_list.append(items_values[4*i:4+4*i])
 
         def get_items():
             for row in items_final_list:
