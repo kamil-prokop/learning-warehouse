@@ -1,8 +1,8 @@
 items = {
     "name": ["Milk", "Sugar", "Flour", "Coffee"],
-    "quantity": [],
-    "unit": [],
-    "unit_price (PLN)": []
+    "quantity": [120, 1000, 12000, 25],
+    "unit": ["l", "kg", "kg", "kg"],
+    "unit price (PLN)": [2.3, 3, 1.2, 40]
 }
 
 text = ""
@@ -13,18 +13,24 @@ def intro_question():
 
     elif init_answer == "show":
 
-        items_list = []
-        for i in items:
-            items_list.append(i)
-    
-        items_letters_length = []
-        for j in items_list:
-            items_letters_length.append("-" * len(j))
+        items_keys = [i.title() for i in items]
+        items_letters_length = ["-" * len(j) for j in items_keys]
+        
+        items_test = []
+        for j in range(0,len(items.items())):
+            for i in items:
+                items_test.append(items.get(i)[j])
 
-        def items_tabs(items_x):
-            print(*items_x, sep = '\t')
-        items_tabs(items_list)
-        items_tabs(items_letters_length)
+        items_final_list = []
+        items_final_list.append(items_keys)
+        items_final_list.append(items_letters_length)
 
+        for i in range(0,4):
+            items_final_list.append(items_test[4*i:4+4*i])
+
+        def get_items():
+            for row in items_final_list:
+                print("{: <10} {: <15} {: <10} {: <20}".format(*row))
+        get_items()
 
 intro_question()
