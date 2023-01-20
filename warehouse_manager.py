@@ -32,4 +32,19 @@ def intro_question():
                 print("{: <10} {: <15} {: <10} {: <20}".format(*row))
         get_items()
 
+    elif init_answer == "add":
+        print("Adding to warehouse...")
+        item_add = []
+        item_name = input("Item name: ")
+        item_quantity = input("Item quantity: ")
+        item_unit = input("Item unit of measure (eg.: l, kg, pcs): ")
+        item_price = input("Item price in PLN: ")
+        item_add.append(item_name)
+        item_add.append(item_quantity) 
+        item_add.append(item_unit) 
+        item_add.append(item_price)
+        print(item_add)
+        print("Successfully added to warehouse. Current status:")
+        #items_final_list.append(item_add)
+
 intro_question()
