@@ -24,7 +24,7 @@ def intro_question():
         items_final_list.append(items_keys)
         items_final_list.append(items_letters_length)
 
-        for i in range(0,4):
+        for i in range(0, len(items.items())):
             items_final_list.append(items_values[4*i:4+4*i])
 
         def get_items():
@@ -34,17 +34,17 @@ def intro_question():
 
     elif init_answer == "add":
         print("Adding to warehouse...")
-        item_add = []
         item_name = input("Item name: ")
+        items['name'].append(item_name)
         item_quantity = input("Item quantity: ")
+        items["quantity"].append(item_quantity)
         item_unit = input("Item unit of measure (eg.: l, kg, pcs): ")
+        items["unit"].append(item_unit)
         item_price = input("Item price in PLN: ")
-        item_add.append(item_name)
-        item_add.append(item_quantity) 
-        item_add.append(item_unit) 
-        item_add.append(item_price)
-        print(item_add)
+        items["unit price (PLN)"].append(item_price)
+
         print("Successfully added to warehouse. Current status:")
-        #items_final_list.append(item_add)
+        print(items)
+              
 
 intro_question()
